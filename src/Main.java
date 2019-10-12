@@ -13,13 +13,14 @@ public class Main {
         int goldBonusCount = 100;
         int standartLevelLimit = 15_000;
         int silverLevelLimit = 150_000;
+        int bonusStepCount = currentSumOrder / bonusStepOrder;
         int currentBonus;
         if (totalSumOrders > 0 && totalSumOrders < standartLevelLimit) {
-            currentBonus = (currentSumOrder / bonusStepOrder) * standartBonusCount;
+            currentBonus = bonusStepCount * standartBonusCount;
         } else if (totalSumOrders < silverLevelLimit) {
-            currentBonus = (currentSumOrder / bonusStepOrder) * silverBonusCount;
+            currentBonus = bonusStepCount * silverBonusCount;
         } else {
-            currentBonus = (currentSumOrder / bonusStepOrder) * goldBonusCount;
+            currentBonus = bonusStepCount * goldBonusCount;
         }
         System.out.println("Ваш бонус за текущую покупку составил " + currentBonus + " бонусов");
     }
